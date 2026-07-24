@@ -3,7 +3,6 @@
 Example: Basic usage of the Multi-AI Chatbot
 """
 import os
-from pathlib import Path
 
 # Set up environment variables (for testing without .env file)
 # In production, use a .env file instead

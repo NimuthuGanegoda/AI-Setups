@@ -1,7 +1,8 @@
 import unittest
 from unittest.mock import MagicMock, patch
+
 from src.ai_manager import AIManager
-import src.config
+
 
 class TestAIManager(unittest.TestCase):
 

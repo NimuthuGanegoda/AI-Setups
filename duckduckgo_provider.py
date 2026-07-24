@@ -3,6 +3,7 @@ DuckDuckGo Provider
 """
 from base_provider import AIProvider
 
+
 class DuckDuckGoProvider(AIProvider):
     """DuckDuckGo Chat provider"""
 

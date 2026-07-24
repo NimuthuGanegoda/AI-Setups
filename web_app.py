@@ -2,9 +2,10 @@
 """
 Web Interface for the Unified AI Chatbot
 """
-from flask import Flask, render_template, request, jsonify, send_from_directory
-from pathlib import Path
 import os
+from pathlib import Path
+
+from flask import Flask, jsonify, render_template, request, send_from_directory
 
 from chatbot import UnifiedAIChatbot
 from config import Config

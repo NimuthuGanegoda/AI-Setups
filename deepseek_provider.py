@@ -3,6 +3,7 @@ DeepSeek Provider
 """
 from openai_provider import OpenAIProvider
 
+
 class DeepSeekProvider(OpenAIProvider):
     """DeepSeek AI provider"""
 

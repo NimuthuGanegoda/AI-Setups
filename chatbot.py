@@ -3,15 +3,13 @@ Unified AI Chatbot Interface
 This module provides a single interface to interact with multiple AI providers
 and media generation capabilities.
 """
-from typing import Optional, List, Dict
-from pathlib import Path
 
 from config import Config
-from openai_provider import OpenAIProvider, DALLEGenerator
-from gemini_provider import GeminiProvider
 from deepseek_provider import DeepSeekProvider
-from grok_provider import GrokProvider
 from duckduckgo_provider import DuckDuckGoProvider
+from gemini_provider import GeminiProvider
+from grok_provider import GrokProvider
+from openai_provider import DALLEGenerator, OpenAIProvider
 from video_provider import ReplicateVideoGenerator, SimpleVideoGenerator
 
 
@@ -80,11 +78,11 @@ class UnifiedAIChatbot:
             return True
         return False
     
-    def list_providers(self) -> List[str]:
+    def list_providers(self) -> list[str]:
         """List all available AI providers"""
         return list(self.providers.keys())
     
-    def chat(self, message: str, provider: Optional[str] = None, **kwargs) -> str:
+    def chat(self, message: str, provider: str | None = None, **kwargs) -> str:
         """
         Send a message to the AI and get a response
         
@@ -119,7 +117,7 @@ class UnifiedAIChatbot:
         
         return response
     
-    def generate_text(self, prompt: str, provider: Optional[str] = None, **kwargs) -> str:
+    def generate_text(self, prompt: str, provider: str | None = None, **kwargs) -> str:
         """
         Generate text without conversation history
         
@@ -139,7 +137,7 @@ class UnifiedAIChatbot:
         provider_obj = self.providers[provider_name]
         return provider_obj.generate_text(prompt, **kwargs)
     
-    def generate_image(self, prompt: str, generator: Optional[str] = None, **kwargs) -> str:
+    def generate_image(self, prompt: str, generator: str | None = None, **kwargs) -> str:
         """
         Generate an image from a text prompt
         
@@ -159,7 +157,7 @@ class UnifiedAIChatbot:
         generator_obj = self.image_generators[generator_name]
         return generator_obj.generate_image(prompt, **kwargs)
     
-    def generate_video(self, prompt: str, generator: Optional[str] = None, **kwargs) -> str:
+    def generate_video(self, prompt: str, generator: str | None = None, **kwargs) -> str:
         """
         Generate a video from a text prompt
         
@@ -188,11 +186,11 @@ class UnifiedAIChatbot:
         if 'gemini' in self.providers:
             self.providers['gemini'].reset_chat()
     
-    def get_conversation_history(self) -> List[Dict]:
+    def get_conversation_history(self) -> list[dict]:
         """Get the current conversation history"""
         return self.conversation_history
     
-    def arena_chat(self, message: str, providers: List[str] = None) -> Dict[str, str]:
+    def arena_chat(self, message: str, providers: list[str] = None) -> dict[str, str]:
         """
         Send a message to multiple providers and get their responses
 
@@ -216,7 +214,7 @@ class UnifiedAIChatbot:
 
         return results
 
-    def get_status(self) -> Dict:
+    def get_status(self) -> dict:
         """Get the status of all providers and generators"""
         return {
             'current_provider': self.current_provider,

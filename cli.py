@@ -2,17 +2,17 @@
 """
 CLI Interface for the Unified AI Chatbot
 """
-import sys
 import argparse
+import sys
+
 from rich.console import Console
-from rich.panel import Panel
 from rich.markdown import Markdown
-from rich.prompt import Prompt, Confirm
+from rich.panel import Panel
+from rich.prompt import Prompt
 from rich.table import Table
 
 from chatbot import UnifiedAIChatbot
 from config import Config
-
 
 console = Console()
 
@@ -147,7 +147,7 @@ def main():
                 
                 elif command == '/image':
                     if command_arg:
-                        console.print(f"[yellow]Generating image...[/yellow]")
+                        console.print("[yellow]Generating image...[/yellow]")
                         result = chatbot.generate_image(command_arg)
                         console.print(f"[green]Image saved to:[/green] {result}")
                     else:
@@ -155,7 +155,7 @@ def main():
                 
                 elif command == '/video':
                     if command_arg:
-                        console.print(f"[yellow]Generating video... (this may take a while)[/yellow]")
+                        console.print("[yellow]Generating video... (this may take a while)[/yellow]")
                         result = chatbot.generate_video(command_arg)
                         console.print(f"[green]Video saved to:[/green] {result}")
                     else:
@@ -180,7 +180,7 @@ def main():
                         results = chatbot.arena_chat(command_arg, available_providers)
 
                         # Display results in a table
-                        table = Table(title=f"Arena Result", show_header=True, header_style="bold magenta", show_lines=True)
+                        table = Table(title="Arena Result", show_header=True, header_style="bold magenta", show_lines=True)
                         for provider in available_providers:
                             table.add_column(provider.upper(), style="cyan", overflow="fold")
 

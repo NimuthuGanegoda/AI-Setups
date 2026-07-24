@@ -1,11 +1,12 @@
 """
 OpenAI Provider (ChatGPT and DALL-E)
 """
-import os
-import requests
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
+
+import requests
 from openai import OpenAI
+
 from base_provider import AIProvider, ImageGenerator
 
 
@@ -28,7 +29,7 @@ class OpenAIProvider(AIProvider):
             )
             return response.choices[0].message.content
         except Exception as e:
-            return f"Error generating text: {str(e)}"
+            return f"Error generating text: {e!s}"
     
     def chat(self, messages: list, **kwargs) -> str:
         """Chat with ChatGPT using conversation history"""
@@ -41,7 +42,7 @@ class OpenAIProvider(AIProvider):
             )
             return response.choices[0].message.content
         except Exception as e:
-            return f"Error in chat: {str(e)}"
+            return f"Error in chat: {e!s}"
 
 
 class DALLEGenerator(ImageGenerator):
@@ -79,4 +80,4 @@ class DALLEGenerator(ImageGenerator):
             
             return str(filepath)
         except Exception as e:
-            return f"Error generating image: {str(e)}"
+            return f"Error generating image: {e!s}"

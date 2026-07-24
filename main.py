@@ -1,7 +1,8 @@
 import argparse
 import sys
+
 from chatbot import UnifiedAIChatbot
-from config import Config
+
 
 def main():
     parser = argparse.ArgumentParser(description="AI Tool Integrator (ChatGPT, DeepSeek, Grok, Gemini, DuckDuckGo)")

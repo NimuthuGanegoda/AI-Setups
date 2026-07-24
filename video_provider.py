@@ -2,10 +2,11 @@
 Video Generation Provider using Replicate
 """
 import os
-import time
-import requests
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
+
+import requests
+
 try:
     import replicate
 except ImportError:
@@ -62,7 +63,7 @@ class ReplicateVideoGenerator(VideoGenerator):
             
             return str(filepath)
         except Exception as e:
-            return f"Error generating video: {str(e)}"
+            return f"Error generating video: {e!s}"
 
 
 class SimpleVideoGenerator(VideoGenerator):
@@ -87,4 +88,4 @@ class SimpleVideoGenerator(VideoGenerator):
             
             return str(filepath)
         except Exception as e:
-            return f"Error creating video placeholder: {str(e)}"
+            return f"Error creating video placeholder: {e!s}"

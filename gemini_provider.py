@@ -2,6 +2,7 @@
 Google Gemini Provider
 """
 import google.generativeai as genai
+
 from base_provider import AIProvider
 
 
@@ -26,7 +27,7 @@ class GeminiProvider(AIProvider):
             )
             return response.text
         except Exception as e:
-            return f"Error generating text: {str(e)}"
+            return f"Error generating text: {e!s}"
     
     def chat(self, messages: list, **kwargs) -> str:
         """Chat with Gemini using conversation history"""
@@ -63,7 +64,7 @@ class GeminiProvider(AIProvider):
             )
             return response.text
         except Exception as e:
-            return f"Error in chat: {str(e)}"
+            return f"Error in chat: {e!s}"
     
     def reset_chat(self):
         """Reset the chat session"""

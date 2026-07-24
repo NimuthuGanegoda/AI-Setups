@@ -2,7 +2,6 @@
 Base AI Provider interface
 """
 from abc import ABC, abstractmethod
-from typing import Optional, Dict, Any
 
 
 class AIProvider(ABC):
@@ -14,12 +13,10 @@ class AIProvider(ABC):
     @abstractmethod
     def generate_text(self, prompt: str, **kwargs) -> str:
         """Generate text response from the AI model"""
-        pass
     
     @abstractmethod
     def chat(self, messages: list, **kwargs) -> str:
         """Chat with the AI model using conversation history"""
-        pass
 
 
 class ImageGenerator(ABC):
@@ -31,7 +28,6 @@ class ImageGenerator(ABC):
     @abstractmethod
     def generate_image(self, prompt: str, **kwargs) -> str:
         """Generate an image and return the file path"""
-        pass
 
 
 class VideoGenerator(ABC):
@@ -43,4 +39,3 @@ class VideoGenerator(ABC):
     @abstractmethod
     def generate_video(self, prompt: str, **kwargs) -> str:
         """Generate a video and return the file path"""
-        pass

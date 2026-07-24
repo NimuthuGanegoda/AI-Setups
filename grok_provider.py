@@ -3,6 +3,7 @@ Grok (xAI) Provider
 """
 from openai_provider import OpenAIProvider
 
+
 class GrokProvider(OpenAIProvider):
     """Grok AI provider"""
 

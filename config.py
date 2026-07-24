@@ -3,6 +3,7 @@ Configuration management for AI Chatbot
 """
 import os
 from pathlib import Path
+
 from dotenv import load_dotenv
 
 # Load environment variables

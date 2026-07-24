@@ -1,5 +1,7 @@
 from openai import OpenAI
-import src.config as config
+
+from src import config
+
 
 class AIManager:
     def __init__(self, provider_name):

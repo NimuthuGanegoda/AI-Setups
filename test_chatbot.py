@@ -2,7 +2,6 @@
 """
 Simple test script for the AI Chatbot
 """
-import os
 import sys
 from pathlib import Path
 
@@ -14,12 +13,12 @@ def test_imports():
     """Test that all modules can be imported"""
     print("Testing imports...")
     try:
-        from config import Config
-        from base_provider import AIProvider, ImageGenerator, VideoGenerator
-        from openai_provider import OpenAIProvider, DALLEGenerator
-        from gemini_provider import GeminiProvider
-        from video_provider import SimpleVideoGenerator
-        from chatbot import UnifiedAIChatbot
+        from config import Config  # noqa: F401
+        from base_provider import AIProvider, ImageGenerator, VideoGenerator  # noqa: F401
+        from openai_provider import OpenAIProvider, DALLEGenerator  # noqa: F401
+        from gemini_provider import GeminiProvider  # noqa: F401
+        from video_provider import SimpleVideoGenerator  # noqa: F401
+        from chatbot import UnifiedAIChatbot  # noqa: F401
         print("✓ All imports successful")
         return True
     except Exception as e:
